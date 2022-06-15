@@ -1,0 +1,29 @@
+PODS:
+  - attestr-flowx (0.6.0)
+  - attestr_flowx_flutter (0.6.1):
+    - attestr-flowx (~> 0.6.0)
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - attestr_flowx_flutter (from `.symlinks/plugins/attestr_flowx_flutter/ios`)
+  - Flutter (from `Flutter`)
+
+SPEC REPOS:
+  trunk:
+    - attestr-flowx
+
+EXTERNAL SOURCES:
+  attestr_flowx_flutter:
+    :path: ".symlinks/plugins/attestr_flowx_flutter/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  attestr-flowx: 7ae91bfe671bd9ca29759bada839c1fc32077296
+  attestr_flowx_flutter: bfed892549ac52282733331707d03e0e8a1c9367
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+
+PODFILE CHECKSUM: 3dffd8c48b531d21ec0ec153c22dc8e3a6223bc9
+
+COCOAPODS: 1.11.3
