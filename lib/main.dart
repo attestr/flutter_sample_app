@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-
 import 'package:flutter/services.dart';
 import 'package:attestr_flowx_flutter/attestr_flowx.dart';
 
@@ -23,7 +21,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-String selectedLocale = "en";
+List<DropdownMenuItem<bool>> get retryList{
+  List<DropdownMenuItem<bool>> menuItems = [
+    const DropdownMenuItem(value: true, child: Text("True")),
+    const DropdownMenuItem(value: false, child: Text("False")),
+  ];
+  return menuItems;
+}
+
+
+bool isRetry = false;
 
 TextEditingController handshakeIDController = TextEditingController();
 TextEditingController clientKeyController = TextEditingController();
@@ -92,6 +99,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 horizontal: 10,
                 vertical: 5,
               ),
+              child: DropdownButton<bool>(
+                value: isRetry,
+                items: retryList,
+                disabledHint: const Text("Select Retry"),
+                onChanged: (bool? retry) {
+                  setState(() {
+                    isRetry = retry!;
+                  });
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 5,
+              ),
               child: OutlinedButton(
                 style: TextButton.styleFrom(
                   primary: Colors.blue,
@@ -114,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'hs': handshakeIDController.text,
       'cl': clientKeyController.text,
       'lc': null,
-      'retry': true,
+      'retry': isRetry,
       'qr': null
     };
     try {
